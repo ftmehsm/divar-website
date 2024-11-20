@@ -1,6 +1,8 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { deleteCategory, getAllCategories } from "@/services/admin";
+
 import Loader from "../modules/Loader";
+import { toast , Bounce } from "react-toastify";
 
 function CategoryList() {
   const queryClient = useQueryClient();
@@ -9,9 +11,20 @@ function CategoryList() {
     queryFn: getAllCategories,
   });
 
-  const deleteHandler = (id) => {
-    deleteCategory(id);
+  const deleteHandler = async(id) => {
+    await deleteCategory(id);
     queryClient.invalidateQueries("categories");
+    toast.error(`دسته بندی با موفقیت حذف شد`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      });
   };
 
   return (

@@ -1,6 +1,7 @@
 import { createCategory } from "@/services/admin";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
+import { toast,Bounce } from "react-toastify";
 
 function CategoryForm() {
   const queryClient = useQueryClient();
@@ -11,40 +12,52 @@ function CategoryForm() {
   });
   const { data, mutate, isPending } = useMutation({
     mutationFn: createCategory,
-    onSuccess:() => queryClient.invalidateQueries("categories")
+    onSuccess:() => {queryClient.invalidateQueries("categories");
+      toast.success(`دسته بندی با موفقیت ایجاد شد`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
+        setForm({ name: "", slug: "", icon: "" });
+    }
   });
 
 
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
+
   const submitHandler = (event) => {
     event.preventDefault();
     if (!form.name || !form.slug || !form.icon) return;
     mutate(form);
-    if (data?.status === 201) {
-      setForm({ name: "", slug: "", icon: "" });
-    }
   };
 
   return (
     <>
       <form
-        onChange={changeHandler}
+        
         onSubmit={submitHandler}
         className="flex flex-col justify-start items-start font-Vazir-Medium"
       >
-        <h3 className="border-b-2 border-b-Primary font-Vazir-Bold text-lg mb-7">
+        <h3 className="border-b-2 border-b-Primary font-Vazir-Bold text-lg mb-4">
           دسته بندی جدید
         </h3>
-        {data?.status === 201 && <p>دسته بندی با موفقیت ایجاد شد</p>}
         <div className="flex flex-col mb-3">
           <label htmlFor="name">اسم دسته بندی</label>
           <input
             type="text"
             name="name"
             id="name"
+            value={form.name} 
             className="border border-gray-300 rounded-sm mt-1 px-1 "
+            onChange={changeHandler}
           />
         </div>
         <div className="flex flex-col mb-3">
@@ -53,7 +66,9 @@ function CategoryForm() {
             type="text"
             name="slug"
             id="slug"
+            value={form.slug} 
             className="border border-gray-300 rounded-sm mt-1 px-1"
+            onChange={changeHandler}
           />
         </div>
 
@@ -64,6 +79,8 @@ function CategoryForm() {
             name="icon"
             id="icon"
             className="border border-gray-300 rounded-sm mt-1 px-1"
+            value={form.icon}
+            onChange={changeHandler}
           />
         </div>
         <button
