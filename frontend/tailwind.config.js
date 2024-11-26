@@ -12,6 +12,9 @@ export default {
       },
       colors:{
         "Primary" : "#a62626"
+      },
+      gridTemplateColumns:{
+        custom : "repeat(auto-fit, minmax(200px, 1fr))"
       }
     },
   },
