@@ -1,7 +1,8 @@
+import axios from "axios";
+
 import { getAllCategories } from "@/services/admin";
 import { getCookie } from "@/utils/cookie";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -42,9 +43,8 @@ function AddPostForm() {
           progress: undefined,
           theme: "light",
           transition: Bounce,
-        });
-        queryClient.invalidateQueries("mypost");
-      })
+        })
+      }).then(() => queryClient.invalidateQueries({ queryKey: ['myPost'] }) )
     reset();
   };
 
