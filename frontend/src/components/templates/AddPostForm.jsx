@@ -16,7 +16,7 @@ function AddPostForm() {
     queryFn: getAllCategories,
   });
 
-  const addPostHandler = (data) => {
+  const addPostHandler =(data) => {
     const accessToken = getCookie("accessToken");
     for (let key in data) {
       if (key === "images" && data[key]?.length) {
@@ -32,19 +32,22 @@ function AddPostForm() {
           Authorization: `bearer ${accessToken}`,
         },
       })
-      .then((res) => {
-        toast.success(`${res.data.message}`, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        })
-      }).then(() => queryClient.invalidateQueries({ queryKey: ['myPost'] }) )
+        .then((res) => {
+          toast.success(`${res.data.message}`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+       queryClient.invalidateQueries({queryKey :['myPost']})
+          queryClient.invalidateQueries({queryKey :['allPosts']})
+
+        });
     reset();
   };
 

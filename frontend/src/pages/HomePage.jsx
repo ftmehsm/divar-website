@@ -1,9 +1,11 @@
 import Categories from "@/components/templates/Categories";
 import Posts from "@/components/templates/Posts";
 
+
 function HomePage() {
+
     return (
-        <div>
+        <div className="grid md:grid-cols-4">
             <Categories/>
             <Posts/>
         </div>
