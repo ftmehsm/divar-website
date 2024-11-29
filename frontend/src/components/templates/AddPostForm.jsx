@@ -6,6 +6,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CitiesList from "@/components/modules/CitiesList.jsx";
 
 function AddPostForm() {
   const queryClient = useQueryClient();
@@ -15,6 +16,7 @@ function AddPostForm() {
     queryKey: ["categories"],
     queryFn: getAllCategories,
   });
+
 
   const addPostHandler =(data) => {
     const accessToken = getCookie("accessToken");
@@ -45,7 +47,6 @@ function AddPostForm() {
             transition: Bounce,
           });
        queryClient.invalidateQueries({queryKey :['myPost']})
-          queryClient.invalidateQueries({queryKey :['allPosts']})
 
         });
     reset();
@@ -87,15 +88,16 @@ function AddPostForm() {
             {...register("amount")}
           />
         </div>
-        <div className="flex flex-col mb-3">
-          <label htmlFor="city">شهر</label>
-          <input
-            type="text"
-            id="city"
-            className="border border-gray-300 rounded-sm mt-1 px-1 "
-            {...register("city")}
-          />
-        </div>
+        {/*<div className="flex flex-col mb-3">*/}
+        {/*  <label htmlFor="city">شهر</label>*/}
+        {/*  <input*/}
+        {/*    type="text"*/}
+        {/*    id="city"*/}
+        {/*    className="border border-gray-300 rounded-sm mt-1 px-1 "*/}
+        {/*    {...register("city")}*/}
+        {/*  />*/}
+        {/*</div>*/}
+        <CitiesList register={register}/>
         <div className="flex flex-col mb-3">
           <label htmlFor="category">دسته بندی</label>
           <select

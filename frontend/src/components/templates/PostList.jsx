@@ -14,6 +14,8 @@ function PostList() {
     queryFn: getMyPost,
   });
 
+  console.log(data?.data.posts)
+
   
   const deleteHandler = (id) => {
     const accessToken = getCookie("accessToken")
@@ -21,7 +23,6 @@ function PostList() {
       Authorization : `bearer ${accessToken}`
     }}).then(() => queryClient.invalidateQueries({ queryKey: ['myPost'] }))
   }
- 
   return (
     <div>
       <h3 className="my-6 font-Vazir-Bold text-xl">آگهی های شما</h3>
