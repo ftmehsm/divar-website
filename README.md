@@ -25,3 +25,6 @@ Divar Website is a web application designed to offer users a platform for buying
    ```bash
    git clone https://github.com/ftmehsm/divar-website.git
    cd divar-website
+2. **run backend** :
+   ```cd backend
+   npm start
