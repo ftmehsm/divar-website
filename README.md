@@ -16,6 +16,7 @@ Divar Website is a web application designed to offer users a platform for buying
 - **React.js**: For building the user interface.
 - **Tailwind CSS**: For styling and responsive design.
 - **Axios**: For HTTP requests to the backend.
+- **React-query**: for managing server states!
 
 ### Backend (Ready-Backend)
 
