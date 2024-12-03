@@ -1,16 +1,18 @@
 import AdminButton from "@/components/modules/AdminButton";
 import {useQuery, useQueryClient} from "@tanstack/react-query";
-import { useState } from "react";
+import {useContext, useState} from "react";
 import {Link, useNavigate,} from "react-router-dom";
 import {userProfile} from "@/services/user.js";
+import CitySelect from "@/components/modules/CitySelect.jsx";
+import {CityContext} from "@/context/CityContext.jsx";
 
 function Header() {
+    const city = useContext(CityContext)
   const navigate = useNavigate()
   const queryClient = useQueryClient();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen , setIsMenuOpen] = useState(false);
     const{data,isPending} = useQuery({queryKey:["userProfile"] , queryFn : userProfile});
-
 
   const toggleDropdown = (event) => {
     event.stopPropagation();
@@ -54,11 +56,7 @@ function Header() {
                 <Link to="/" className="w-[45px] h-[40px]">
                     <img src="divar.svg" alt="divar-logo" className="w-full h-full"/>
                 </Link>
-                <button
-                    className="flex items-center leading-[50px] h-10 text-gray-500 mr-3 hover:bg-gray-200 rounded-md px-1">
-                    <span className="mr-[5px]">تـهران</span>
-                    <img src="location.svg" alt="loaction" className="w-6 h-6"/>
-                </button>
+                <CitySelect/>
             </div>
             <div className="items-center hidden md:flex">
                     <a className="relative flex items-center">

@@ -2,6 +2,9 @@
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    container: {
+      center : true,
+    },
     extend: {
       fontFamily: {
         "Vazir": "Vazir",
@@ -15,7 +18,19 @@ export default {
       },
       gridTemplateColumns:{
         custom : "repeat(auto-fit, minmax(200px, 1fr))"
+      },
+      keyframes: {
+        slideDown: {
+          '0%': { transform: 'translateY(-1%)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+
+      },
+      animation: {
+        slideDown: 'slideDown 0.4s ease-out',
+
       }
+
     },
   },
   plugins: [],

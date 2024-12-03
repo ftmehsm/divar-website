@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import  defaultOptions  from "./configs/reactQuery";
 import Layout from "./layout/Layout";
 import { ToastContainer } from "react-toastify";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import CityProvider from "@/context/CityContext.jsx";
 
 function App() {
   const queryClient = new QueryClient({
@@ -17,12 +17,15 @@ function App() {
   
   return (
     <QueryClientProvider client={queryClient}>
+      <CityProvider>
+
     <BrowserRouter>
     <Layout>
     <Router/>
     <ToastContainer/>
     </Layout>
     </BrowserRouter>
+      </CityProvider>
     </QueryClientProvider>
   )
 }
