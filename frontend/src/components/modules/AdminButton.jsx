@@ -1,14 +1,11 @@
 import { userProfile } from "@/services/user";
 import { useQuery } from "@tanstack/react-query";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 function AdminButton() {
-    const navigate = useNavigate();
     const{data,isPending} = useQuery({queryKey:["userProfile"] , queryFn : userProfile});
 
     if(isPending) return;
-
-
 
     return (
         <div>
