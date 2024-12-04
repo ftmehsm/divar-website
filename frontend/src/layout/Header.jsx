@@ -1,18 +1,22 @@
 import AdminButton from "@/components/modules/AdminButton";
 import {useQuery, useQueryClient} from "@tanstack/react-query";
-import {useContext, useState} from "react";
+import {useState} from "react";
 import {Link, useNavigate,} from "react-router-dom";
 import {userProfile} from "@/services/user.js";
 import CitySelect from "@/components/modules/CitySelect.jsx";
-import {CityContext} from "@/context/CityContext.jsx";
 
 function Header() {
-    const city = useContext(CityContext)
   const navigate = useNavigate()
   const queryClient = useQueryClient();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen , setIsMenuOpen] = useState(false);
-    const{data,isPending} = useQuery({queryKey:["userProfile"] , queryFn : userProfile});
+  const{data,isPending} = useQuery({queryKey:["userProfile"] , queryFn : userProfile});
+
+
+
+  document.body.addEventListener("click" , () => {
+      setIsDropdownOpen(false)
+  })
 
   const toggleDropdown = (event) => {
     event.stopPropagation();
@@ -66,10 +70,10 @@ function Header() {
                             <img src="profile.svg" alt="" className="w-5 h-5"/>
                             <span>دیوار من</span>
                             <div className="cursor-pointer" onClick={toggleDropdown}>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                {data && <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                      strokeWidth={1.5} stroke="currentColor" className="size-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
-                                </svg>
+                                </svg>}
                             </div>
                         </div>
                         {isDropdownOpen && (
