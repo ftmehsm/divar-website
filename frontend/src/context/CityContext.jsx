@@ -1,4 +1,4 @@
-import {createContext, useEffect, useMemo, useState} from "react";
+import {createContext, useEffect, useState} from "react";
 import {useQuery} from "@tanstack/react-query";
 import {getAllPosts} from "@/services/user.js";
 
