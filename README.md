@@ -8,6 +8,7 @@ Divar Website is a web application designed to offer users a platform for buying
 - **Product Listings**: Create, edit, and browse through product listings.
 - **Responsive Design**: Optimized for both desktop and mobile devices.
 - **Real-time Updates**: Experience updates to the listing feed without refreshing the page.
+- **Filtering by city**: you can select city and posts will be filtered by that!
 
 ## Technologies Used
 
@@ -15,6 +16,7 @@ Divar Website is a web application designed to offer users a platform for buying
 - **React.js**: For building the user interface.
 - **Tailwind CSS**: For styling and responsive design.
 - **Axios**: For HTTP requests to the backend.
+- **React-query**: for managing server states!
 
 ### Backend (Ready-Backend)
 
@@ -24,3 +26,7 @@ Divar Website is a web application designed to offer users a platform for buying
    ```bash
    git clone https://github.com/ftmehsm/divar-website.git
    cd divar-website
+2. **run backend** :
+   ```
+   cd backend
+   npm start
