@@ -6,18 +6,17 @@ import {useEffect} from "react";
 
 
 function HomePage() {
-    const {refetch} = useQuery({queryKey:["allPosts"] , queryFn: getAllPosts });
-
-    useEffect(() => {
-        refetch();
-    }, []);
+    // const {refetch} = useQuery({queryKey:["allPosts"] , queryFn: getAllPosts });
+    //
+    // useEffect(() => {
+    //     refetch();
+    // }, []);
 
     return (
         <div className="grid md:grid-cols-4">
             <Categories/>
             <Posts/>
         </div>
-
     );
 }
 
