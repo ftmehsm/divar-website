@@ -47,6 +47,7 @@ function AddPostForm() {
             transition: Bounce,
           });
        queryClient.invalidateQueries({queryKey :['myPost']})
+          queryClient.invalidateQueries({queryKey :["allPosts"]})
 
         });
     reset();
