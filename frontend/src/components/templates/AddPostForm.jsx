@@ -56,7 +56,7 @@ function AddPostForm() {
   return (
     <div>
       <form
-        className="grid grid-cols-2 gap-3 justify-start items-start font-Vazir-Medium"
+        className="grid grid-cols-2 gap-3 font-Vazir-Medium p-2"
         onSubmit={handleSubmit(addPostHandler)}
       >
         <h3 className="col-span-2  border-b-2 border-b-Primary font-Vazir-Bold text-lg mb-4">
@@ -89,21 +89,12 @@ function AddPostForm() {
             {...register("amount")}
           />
         </div>
-        {/*<div className="flex flex-col mb-3">*/}
-        {/*  <label htmlFor="city">شهر</label>*/}
-        {/*  <input*/}
-        {/*    type="text"*/}
-        {/*    id="city"*/}
-        {/*    className="border border-gray-300 rounded-sm mt-1 px-1 "*/}
-        {/*    {...register("city")}*/}
-        {/*  />*/}
-        {/*</div>*/}
         <CitiesList register={register}/>
         <div className="flex flex-col mb-3">
           <label htmlFor="category">دسته بندی</label>
           <select
             id="category"
-            className="border border-gray-300 rounded-sm mt-1 px-1 w-[194px]"
+            className="border border-gray-300 rounded-sm mt-1 px-1"
             {...register("category")}
           >
             <option value="">...</option>

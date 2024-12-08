@@ -43,7 +43,7 @@ function Header() {
   return (
     <>
         <nav className="flex relative justify-between items-center px-3 py-[10px] mb-5 border-b-2 border-b-[rgb(234,234,234)]">
-            {isMenuOpen && <div className="absolute md:hidden top-[60px] right-0 text-center w-full bg-slate-50 shadow ">
+            {isMenuOpen && <div className="absolute md:hidden top-[60px] right-0 text-center w-full bg-slate-50 shadow animate-slideDown ">
                 <ul className="flex flex-col items-center  gap-3 p-3 ">
                     <Link to="auth/"  onClick={() => setIsMenuOpen(false)}>پنل کاربری</Link>
                     {data && data.data.role === "ADMIN" && <Link to="/admin" onClick={() => setIsMenuOpen(false)}>پنل ادمین</Link>}

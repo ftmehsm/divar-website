@@ -28,7 +28,7 @@ function CitySelect() {
         <>
         <button onClick={clickHandler}
             className = "relative flex items-center leading-[50px] h-10 text-gray-500 mr-3 hover:bg-gray-200 rounded-md px-1" >
-                < span className="mr-[5px]">{!city ? "استان مورد نظر خود را انتخاب کنید" : `${city}`}</span>
+                < span className="mr-[5px] text-sm md:text-lg">{!city ? "استان مورد نظر خود را انتخاب کنید" : `${city}`}</span>
                 <img src="/location.svg" alt="loaction" className="w-6 h-6"/>
         </button>
             {cityMenu && <ul  className="absolute top-[50px] left-1 md:right-12 bg-slate-100 grid grid-cols-3 gap-3 w-3/4 md:w-1/2 p-2 rounded-md shadow-md animate-slideDown">

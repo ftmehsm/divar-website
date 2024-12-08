@@ -12,7 +12,7 @@ function CitiesList({register}) {
             <label htmlFor="city">شهر</label>
             <select
                 id="city"
-                className="border border-gray-300 rounded-sm mt-1 px-1 w-[194px]"
+                className="border border-gray-300 rounded-sm mt-1 px-1 "
                 {...register("city")}
             >
                 <option value="">...</option>
