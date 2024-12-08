@@ -58,7 +58,7 @@ function Header() {
             </button>
             <div className="flex items-center ">
                 <Link to="/" className="w-[45px] h-[40px]">
-                    <img src="divar.svg" alt="divar-logo" className="w-full h-full"/>
+                    <img src="/divar.svg" alt="divar-logo" className="w-full h-full"/>
                 </Link>
                 <CitySelect/>
             </div>
@@ -67,7 +67,7 @@ function Header() {
                         <div
                             className="flex items-center gap-2 h-10 leading-[50px] text-gray-500  hover:bg-gray-200 rounded-md px-2 cursor-pointer"
                             onClick={clickHandler}>
-                            <img src="profile.svg" alt="" className="w-5 h-5"/>
+                            <img src="/profile.svg" alt="" className="w-5 h-5"/>
                             <span>دیوار من</span>
                             <div className="cursor-pointer" onClick={toggleDropdown}>
                                 {data && <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
