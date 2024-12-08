@@ -31,12 +31,12 @@ function CitySelect() {
                 < span className="mr-[5px]">{!city ? "استان مورد نظر خود را انتخاب کنید" : `${city}`}</span>
                 <img src="/location.svg" alt="loaction" className="w-6 h-6"/>
         </button>
-            {cityMenu && <ul onClick={selectHandler} className="absolute top-[50px] left-1 md:right-12 bg-slate-100 grid grid-cols-3 gap-3 w-3/4 md:w-1/2 p-2 rounded-md shadow-md animate-slideDown">
+            {cityMenu && <ul  className="absolute top-[50px] left-1 md:right-12 bg-slate-100 grid grid-cols-3 gap-3 w-3/4 md:w-1/2 p-2 rounded-md shadow-md animate-slideDown">
 
-                <li className="cursor-pointer hover:bg-Primary px-2 hover:text-white text-Primary rounded">
+                <li onClick={selectHandler} className="cursor-pointer hover:bg-Primary px-2 hover:text-white text-Primary rounded">
                     همه ی استان ها
                 </li>
-                {data?.data[0].provinces.map(item => <li className="cursor-pointer hover:bg-Primary px-2 hover:text-white rounded" key={item}>
+                {data?.data[0].provinces.map(item => <li onClick={selectHandler} className="cursor-pointer hover:bg-Primary px-2 hover:text-white rounded" key={item}>
                     {item}
                 </li>)}
             </ul>}
