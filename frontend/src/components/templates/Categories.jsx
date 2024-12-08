@@ -5,8 +5,9 @@ import {CityContext} from "@/context/CityContext.jsx";
 
 
 function Categories() {
-    const { setCategory } = useContext(CityContext);
+    const { setCategory  } = useContext(CityContext);
     const { data, isPending } = useQuery({queryKey: ["categories"], queryFn: getAllCategories,});
+
 
     const selectHandler= (event) => {
         const selected = event.target.innerText;
@@ -16,6 +17,7 @@ function Categories() {
         }else if(selected === "همه ی آگهی ها"){
             setCategory("")
         }
+
     }
 
     if (isPending) return;
@@ -27,7 +29,7 @@ function Categories() {
       </h3>
         <div className="mt-3 space-y-2">
             <div onClick={selectHandler}
-                 className=" font-Vazir-Medium rounded-md  cursor-pointer hover:bg-slate-100 transition-all"
+                 className=" font-Vazir-Medium rounded-md p-2  cursor-pointer hover:bg-slate-100 transition-all"
             >
                 <span className="text-gray-700 text-sm">همه ی آگهی ها</span>
             </div>

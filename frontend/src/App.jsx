@@ -17,14 +17,14 @@ function App() {
   
   return (
     <QueryClientProvider client={queryClient}>
-      <CityProvider>
     <BrowserRouter>
+      <CityProvider>
     <Layout>
     <Router/>
     <ToastContainer/>
     </Layout>
-    </BrowserRouter>
       </CityProvider>
+    </BrowserRouter>
     </QueryClientProvider>
   )
 }
